@@ -3,11 +3,7 @@ const body = document.body;
 alert("Boas vindas ao meu jogo do número secreto em parceria com a Alura!");
 
 const maxTentativas = 5;
-let numsec = 0
-
-while (numsec < 1 || numsec > 100 || isNaN(numsec)){
-    numsec = parseInt(prompt("Escolha um número de 1 a 100, mas não deixe o outro jogador ver:"))
-}
+let numsec = parseInt(Math.random(50) * 100) + 1
 
 let player;
 let tentativas = 0;
@@ -19,6 +15,8 @@ while (tentativas < maxTentativas) {
 
     if (numsec == player) {
         acertou = true;
+        let pluralten = tentativas > 1 ? 'tentativas' : 'tentativa'
+        alert(`Parabéns, você acertou o número secreto ${numsec} com: ${tentativas} ${pluralten}`)
         break;
     } else {
         if (player > numsec) {
